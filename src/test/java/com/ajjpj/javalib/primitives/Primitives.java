@@ -1,6 +1,9 @@
 package com.ajjpj.javalib.primitives;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.junit.jupiter.api.Test;
 
@@ -73,6 +76,8 @@ public class Primitives {
         System.out.println(Character.isWhitespace(ch));
     }
 
+    Map<String,String> cache = new ConcurrentHashMap<>();
+
     @Test
     void testString() {
         String s = """
@@ -96,6 +101,8 @@ public class Primitives {
         String s4 = s3.intern();
         System.out.println(name == s3);
         System.out.println(name == s4);
+
+        String s5 = cache.computeIfAbsent(s3, key -> key);
 
         String middle = name.substring(2, 4);
         System.out.println(middle);
