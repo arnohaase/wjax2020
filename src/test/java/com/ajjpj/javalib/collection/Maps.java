@@ -85,4 +85,8 @@ public class Maps {
         System.out.println(m.values().contains(2));
         System.out.println(m.containsValue(1));
     }
+
+    // Übung: Teilnehmerverwaltung: eine Map mit "Veranstaltung" als Key, "Teilnehmerliste" als Value
+    //  --> Teilnehmer einer Veranstaltung abfragen (--> nie null)
+    //  --> Teilnehmer hinzufügen / entfernen (einzeln oder Listen von Teilnehmern)
 }
