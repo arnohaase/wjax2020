@@ -120,7 +120,8 @@ public class Maps {
             teilnehmerListen
                     .computeIfPresent(veranstaltung, (key, aktuelleTeilnehmer) -> {
                         aktuelleTeilnehmer.removeAll(teilnehmer);
-                        // Speicher aufräumen: wenn die Veranstaltung leer ist, dann entfernen wir sie aus der Map
+                        // Speicher aufräumen: wenn die Veranstaltung leer ist, dann
+                        //  geben wir null zurück --> das entfernt den Eintrag aus der Map
                         return aktuelleTeilnehmer.isEmpty() ? null : aktuelleTeilnehmer;
                     });
         }
