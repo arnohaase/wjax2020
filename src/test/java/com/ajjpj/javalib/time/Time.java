@@ -65,6 +65,25 @@ public class Time {
     //  * wie lange dauert eine System.gc()
     //    * testbar machen
 
+    @Test
+    void uebung() {
+        LocalDate geburtstag = LocalDate.of(1992, 3, 21);
+        System.out.println(geburtstag.getDayOfWeek());
+        System.out.println(geburtstag.plus(10000, ChronoUnit.DAYS));
+
+        Instant before = Instant.now();
+        System.gc();
+        Instant after = Instant.now();
+        System.out.println("Dauer: " + before.until(after, ChronoUnit.MILLIS) + "ms");
+    }
+
+    Duration testbar(Clock clockBefore, Clock clockAfter, Runnable code) {
+        Instant before = Instant.now(clockBefore);
+        code.run();
+        Instant after = Instant.now(clockAfter);
+        return Duration.between(before, after);
+    }
+
 
     @Test
     void testFormat() {
