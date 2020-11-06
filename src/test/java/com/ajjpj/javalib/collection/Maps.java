@@ -1,7 +1,9 @@
 package com.ajjpj.javalib.collection;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 
@@ -89,4 +91,38 @@ public class Maps {
     // Übung: Teilnehmerverwaltung: eine Map mit "Veranstaltung" als Key, "Teilnehmerliste" als Value
     //  --> Teilnehmer einer Veranstaltung abfragen (--> nie null)
     //  --> Teilnehmer hinzufügen / entfernen (einzeln oder Listen von Teilnehmern)
+
+    static class Teilnehmerverwaltung {
+        private final Map<String, Set<String>> teilnehmerListen = new HashMap<>();
+
+        Set<String> getTeilnehmer(String veranstaltung) {
+            return teilnehmerListen.getOrDefault(veranstaltung, Set.of());
+        }
+
+        void addTeilnehmer(String veranstaltung, String teilnehmer) {
+            addTeilnehmer(veranstaltung, Set.of(teilnehmer));
+        }
+
+        void addTeilnehmer(String veranstaltung, Set<String> teilnehmer) {
+            // wir kopieren die Teilnehmer-Collection in ein neues Set um, damit sichergestellt ist,
+            //  dass die Teilnehmerliste in der Map veränderlich ist
+            teilnehmerListen
+                    .computeIfAbsent(veranstaltung, key -> new HashSet<>())
+                    .addAll(teilnehmer);
+        }
+
+        void removeTeilnehmer(String veranstaltung, String teilnehmer) {
+            removeTeilnehmer(veranstaltung, Set.of(teilnehmer));
+        }
+
+        void removeTeilnehmer(String veranstaltung, Set<String> teilnehmer) {
+            // wenn es die Veranstaltung noch nicht gibt, brauchen wir auch nichts zu tun
+            teilnehmerListen
+                    .computeIfPresent(veranstaltung, (key, aktuelleTeilnehmer) -> {
+                        aktuelleTeilnehmer.removeAll(teilnehmer);
+                        // Speicher aufräumen: wenn die Veranstaltung leer ist, dann entfernen wir sie aus der Map
+                        return aktuelleTeilnehmer.isEmpty() ? null : aktuelleTeilnehmer;
+                    });
+        }
+    }
 }
