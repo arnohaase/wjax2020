@@ -76,7 +76,7 @@ public class Primitives {
         System.out.println(Character.isWhitespace(ch));
     }
 
-    Map<String,String> cache = new ConcurrentHashMap<>();
+    Map<String,String> cache = new ConcurrentHashMap<>(); // selbstgebautes "Interning"
 
     @Test
     void testString() {
