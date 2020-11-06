@@ -60,4 +60,15 @@ public class Readers {
 
     // Übung: Textdatei anlegen (in utf-8) und konvertiert sie streaming nach iso-8859-1 (oder andersherum, wenn
     //  das bequemer ist)
+
+    @Test
+    void testUebung() throws IOException {
+        try(Reader in = new BufferedReader(new FileReader("README.md", StandardCharsets.UTF_8));
+                Writer out = new BufferedWriter(new FileWriter("converted-to-iso-8859-1.txt", StandardCharsets.ISO_8859_1))) {
+            int ch;
+            while ((ch = in.read()) != -1) {
+                out.write((char)ch);
+            }
+        }
+    }
 }
