@@ -21,8 +21,8 @@ public class CollectionUebung {
         for (int duplicate : duplicatesSet(list)) {
             System.out.println(duplicate);
         }
-        System.out.println("--- duplicateIndecies ---");
-        for (int duplicate : duplicateIndecies(list)) {
+        System.out.println("--- duplicateIndices ---");
+        for (int duplicate : duplicateIndices(list)) {
             System.out.println(duplicate);
         }
     }
@@ -59,7 +59,7 @@ public class CollectionUebung {
     /**
      * @return alle index an denen duplikate vorkommen
      */
-    private Set<Integer> duplicateIndecies (List<Integer> list) {
+    private Set<Integer> duplicateIndices (List<Integer> list) {
         Set<Integer> duplicateIndex = new HashSet<>();
         Map<Integer, Integer> valueToLastIndex = new HashMap<>();
         for (int index=0; index<list.size(); index++) {
