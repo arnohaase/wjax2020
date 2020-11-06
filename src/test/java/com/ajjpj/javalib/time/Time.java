@@ -84,7 +84,6 @@ public class Time {
         return Duration.between(before, after);
     }
 
-
     @Test
     void testFormat() {
         Instant now = Instant.now();
