@@ -1,6 +1,7 @@
 package com.ajjpj.javalib.time;
 
 import java.time.*;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
 import org.junit.jupiter.api.Test;
@@ -63,5 +64,14 @@ public class Time {
     //  * 10.000 ten Tag seit dem Geburtstag
     //  * wie lange dauert eine System.gc()
     //    * testbar machen
+
+
+    @Test
+    void testFormat() {
+        Instant now = Instant.now();
+        System.out.println(DateTimeFormatter.ISO_INSTANT.format(now));
+
+        // Jackson: JavaTimeModule registrieren, WRITE_DATES_AS_TIMESTAMPS setzen
+    }
 
 }
