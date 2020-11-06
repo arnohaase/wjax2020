@@ -78,8 +78,10 @@ public class StreamUeberblick {
 
     @Test
     void streamFindAndCount() {
-        Stream.of(1, 2, 3, 4, 5, 6, 7, 8).findAny();
-        Stream.of(1, 2, 3, 4, 5, 6, 7, 8).count();
+        int any = Stream.of(1, 2, 3, 4, 5, 6, 7, 8).findAny().orElse(-1);
+        int first = Stream.of(1, 2, 3, 4, 5, 6, 7, 8).findFirst().orElse(-1);
+        long count = Stream.of(1, 2, 3, 4, 5, 6, 7, 8).count();
+        System.out.println(any+"/"+first+"/"+count);
     }
 
     // Liste mit Namen, nach präfixen (optional mit Regex)
@@ -88,3 +90,4 @@ public class StreamUeberblick {
     // Collectors.toMap()
 
 }
+
