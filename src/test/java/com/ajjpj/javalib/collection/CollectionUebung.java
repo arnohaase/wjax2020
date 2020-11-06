@@ -11,7 +11,7 @@ import java.util.Set;
 public class CollectionUebung {
 
     @Test
-    public void findDuplicates(){
+    void findDuplicates(){
         List<Integer> list = List.of(1, 2, 3, 4, 5, 3, 4, 2, 3, 4);
         System.out.println("--- duplicates ---");
         for (int duplicate : duplicates(list)) {

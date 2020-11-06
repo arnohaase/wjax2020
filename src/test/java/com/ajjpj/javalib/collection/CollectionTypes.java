@@ -13,7 +13,7 @@ import java.util.Set;
 public class CollectionTypes {
 
     @Test
-    public void testListAdd(){
+    void testListAdd(){
         List<Integer> list = new ArrayList<>();
         list.add(1);
         list.add(1);
@@ -26,13 +26,13 @@ public class CollectionTypes {
     }
 
     @Test
-    public void testListOf(){
+    void testListOf(){
         List<Integer> list = List.of(1,1,1,2,3,5,23);
         System.out.println(list.get(3));
     }
 
     @Test
-    public void testListUnmod() {
+    void testListUnmod() {
         List<Integer> list = List.of(1,1,1,2,3,5,23);
 //        list.add(21);
         list = List.copyOf(list);
@@ -42,13 +42,13 @@ public class CollectionTypes {
     }
 
     @Test
-    public void testSetUnique() {
+    void testSetUnique() {
         Set<Integer> set = Set.of(1, 2, 3, 4, 1, 2, 3, 5);
         System.out.println(set.size());
     }
 
     @Test
-    public void testSetUnique2() {
+    void testSetUnique2() {
         Set<Integer> set = new HashSet<>();
         set.add(1);
         set.add(1);
@@ -58,7 +58,7 @@ public class CollectionTypes {
     }
 
     @Test
-    public void testadding(){
+    void testadding(){
         Set<Integer> set = new HashSet<>();
         System.out.println(set.add(1));
         System.out.println(set.add(2));
@@ -69,7 +69,7 @@ public class CollectionTypes {
     }
 
     @Test
-    public void testContainsSet(){
+    void testContainsSet(){
         Set<Integer> set = new HashSet<>();
         System.out.println(set.add(1));
         System.out.println(set.add(2));
@@ -79,7 +79,7 @@ public class CollectionTypes {
     }
 
     @Test
-    public void testContainsList(){
+    void testContainsList(){
         Collection<Integer> list = new ArrayList<>();
         System.out.println(list.add(1));
         System.out.println(list.add(2));
@@ -90,7 +90,7 @@ public class CollectionTypes {
     }
 
     @Test
-    public void testCollectionApi(){
+    void testCollectionApi(){
         Collection<Integer> collection = new ArrayList<>();
         System.out.println(collection.add(1));
         System.out.println(collection.add(2));
@@ -103,7 +103,7 @@ public class CollectionTypes {
     }
 
     @Test
-    public void testCollectionIterable () {
+    void testCollectionIterable () {
         Collection<Integer> collection = new ArrayList<>();
         System.out.println(collection.add(1));
         System.out.println(collection.add(2));
@@ -119,7 +119,7 @@ public class CollectionTypes {
     }
 
     @Test
-    public void testCollectionFor () {
+    void testCollectionFor () {
         List<Integer> list = new ArrayList<>();
         System.out.println(list.add(1));
         System.out.println(list.add(2));
@@ -131,7 +131,7 @@ public class CollectionTypes {
     }
 
     @Test
-    public void testSort() {
+    void testSort() {
         List<Integer> list = new ArrayList<>();
         list.add(1);
         list.add(3);
