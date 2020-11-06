@@ -96,7 +96,8 @@ public class Maps {
         private final Map<String, Set<String>> teilnehmerListen = new HashMap<>();
 
         Set<String> getTeilnehmer(String veranstaltung) {
-            return teilnehmerListen.getOrDefault(veranstaltung, Set.of());
+            Set<String> teilnehmer = teilnehmerListen.getOrDefault(veranstaltung, Set.of());
+            return Set.copyOf(teilnehmer); // unveränderliche Kopie zurückgeben
         }
 
         void addTeilnehmer(String veranstaltung, String teilnehmer) {
