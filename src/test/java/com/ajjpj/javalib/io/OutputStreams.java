@@ -1,9 +1,6 @@
 package com.ajjpj.javalib.io;
 
-import java.io.BufferedOutputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 
 import org.junit.jupiter.api.Test;
 
@@ -59,4 +56,31 @@ public class OutputStreams {
     // Übung:
     // 1. Eine Biärdatei durchsuchen und die Vorkommen von '99' zählen
     // 2. Eine Binärdatei sortieren: alle geraden bytes in eine Datei, die ungeraden in eine andere
+
+    int uebung1(InputStream in) throws Exception {
+        int count = 0;
+        int b;
+        while((b = in.read()) != -1) {
+            if (b == 99) {
+                count += 1;
+            }
+        }
+
+        return count;
+    }
+
+    void uebung2(InputStream in) throws IOException {
+        try(OutputStream even = new FileOutputStream("even.bin");
+                OutputStream odd = new FileOutputStream("odd.bin")) {
+            int b;
+            while((b = in.read()) != -1) {
+                if (b%2 == 0) {
+                    even.write(b);
+                }
+                else {
+                    odd.write(b);
+                }
+            }
+        }
+    }
 }

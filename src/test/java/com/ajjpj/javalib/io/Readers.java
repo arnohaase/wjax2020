@@ -41,6 +41,14 @@ public class Readers {
         out.println("Hallo");
     }
 
+    @Test
+    void testTryWithResource() throws IOException {
+        try (Reader r = new FileReader("README.md", StandardCharsets.UTF_8);
+                Writer w = new FileWriter("out.txt", StandardCharsets.UTF_8)) {
+            //...
+        }
+    }
+
     /*
     Ausprägungen:
     * File...
